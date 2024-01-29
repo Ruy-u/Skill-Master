@@ -348,6 +348,7 @@ namespace Ruyu.SkillMaster
         {
             Harmony harmony = new Harmony("Ruyu.SkillsOfColony");
             harmony.PatchAll();
+            //My thanks to divineDerivative for the worktab patch
             if (ModsConfig.IsActive("Fluffy.WorkTab"))
             {
                 harmony.Patch(AccessTools.TypeByName("WorkTab.MainTabWindow_WorkTab").GetMethod("DoWindowContents"), postfix: new HarmonyMethod(typeof(Worktab_Patch), nameof(Worktab_Patch.Postfix)));
